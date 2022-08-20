@@ -6,17 +6,37 @@ import Product from "./pages/product";
 import Cart from "./pages/cart";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <Home />
-      {/* <Productlist /> */}
-      {/* <Product /> */}
-      {/* <Cart /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/products">
+          <Productlist />
+        </Route>
+        <Route path="/product">
+          <Product />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/register">
+          <Register />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
